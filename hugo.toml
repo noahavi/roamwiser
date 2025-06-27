@@ -1,0 +1,31 @@
+baseURL = 'https://roamwiser.com/'
+languageCode = 'en-us'
+title = 'Roam Wiser'
+theme = 'ananke'
+[params]
+  site_logo = "images/logo.png"
+  custom_css = ["css/custom.css"]
+[menu]
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 5
+
+[[menu.main]]
+  name = "Gallery"
+  url = "/gallery/"
+  weight = 4
+
+[[menu.main]]
+  name = "Destinations"
+  url = "/destinations/"
+  weight = 3

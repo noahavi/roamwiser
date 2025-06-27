@@ -1,0 +1,47 @@
+{{ define "header" }}
+  {{ partial "page-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<main class="mw8 center pv4 ph3 ph4-ns">
+  <h1 class="f2 lh-title tc">Latest Blog Posts</h1>
+
+  <div class="flex flex-wrap">
+    {{ range .Paginator.Pages }}
+      <article class="w-100 w-50-m w-33-l pa3">
+        <div class="ba b--light-gray br3 shadow-1 bg-white pa3 h-100 flex flex-column justify-between">
+
+          {{ with .Params.image }}
+            <a href="{{ .RelPermalink }}">
+              <img src="{{ . }}" alt="{{ .Title }}" class="br2 mb3" style="object-fit: cover; height: 180px; width: 100%;" />
+            </a>
+          {{ end }}
+
+          <div>
+            <h2 class="f4 mt0 mb2">
+              <a href="{{ .RelPermalink }}" class="link dark-blue">{{ .Title }}</a>
+            </h2>
+            <p class="gray f6">{{ .Date.Format "Jan 2, 2006" }}</p>
+            <p class="lh-copy measure mt2">{{ .Summary }}</p>
+
+            {{ with .Params.tags }}
+              <div class="mt2">
+                {{ range . }}
+                  <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="f6 link blue dim mr2">#{{ . }}</a>
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+
+          <a href="{{ .RelPermalink }}" class="f6 link dim blue db mt3">Read more →</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  <div class="tc mt4">
+    {{ template "_internal/pagination.html" . }}
+  </div>
+</main>
+{{ end }}
+

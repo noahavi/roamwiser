@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Destinations | Roam Wiser</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.147.8">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/css/custom.css">
+  
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/destinations/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/destinations/">
+  <meta property="og:site_name" content="Roam Wiser">
+  <meta property="og:title" content="Destinations">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+
+  <meta itemprop="name" content="Destinations">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Destinations">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        <img src="/images/logo.png" class="w100 mw5-ns" alt="Roam Wiser" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/destinations/" title="Destinations page">
+              Destinations
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/gallery/" title="Gallery page">
+              Gallery
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+<main class="mw9 center pv4 ph3 ph4-ns">
+  
+  <section class="tc center mw6 mb5">
+    <h1 class="f2 lh-title">Interactive Travel Map</h1>
+    <p class="f5 gray">Click on a destination to explore travel guides, photos, and stories from each location.</p>
+  </section>
+
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <div id="map" style="height: 600px; border-radius: 12px;"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const map = L.map('map').setView([20, 0], 2);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 18,
+      }).addTo(map);
+
+      
+      const destinations = [
+        {
+          name: "Tokyo, Japan",
+          lat: 35.6895,
+          lon: 139.6917,
+          url: "/posts/tokyo-guide/"
+        },
+        {
+          name: "Cusco, Peru",
+          lat: -13.5319,
+          lon: -71.9675,
+          url: "/posts/cusco-mountains/"
+        },
+        {
+          name: "Lisbon, Portugal",
+          lat: 38.7169,
+          lon: -9.1399,
+          url: "/posts/lisbon-diary/"
+        }
+      ];
+
+      destinations.forEach(dest => {
+        const marker = L.marker([dest.lat, dest.lon]).addTo(map);
+        marker.bindPopup(`<b>${dest.name}</b><br><a href="${dest.url}">View Post</a>`);
+      });
+    });
+  </script>
+</main>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Roam Wiser 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

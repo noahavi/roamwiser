@@ -1,0 +1,5 @@
+---
+title: "Destinations"
+layout: "destinations"
+---
+

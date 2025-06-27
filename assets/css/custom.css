@@ -1,0 +1,25 @@
+/* Reduce header spacing and font sizes */
+.tc-l.pv4.pv6-l.ph3.ph4-ns,
+.tc-l.pv3.ph3.ph4-ns {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.tc-l h1 {
+  font-size: 1.8rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.tc-l h2 {
+  font-size: 1rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+}
+.caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+

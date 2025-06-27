@@ -1,0 +1,72 @@
+{{ define "header" }}
+  {{ partial "page-header.html" . }}
+{{ end }}
+{{ define "main" }}
+<main class="mw8 center pv4 ph3 ph4-ns">
+  <h1 class="f2 lh-title tc">{{ .Title }}</h1>
+  <p class="f5 gray">A curated visual journey from some of the most breathtaking places I've explored — from remote islands to ancient cities.</p>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Swiper Container -->
+  <div class="swiper" style="max-width: 800px; margin: 2rem auto;">
+    <div class="swiper-wrapper">
+      {{ range .Page.Resources.Match "*.{jpg,jpeg}" }}
+        <div class="swiper-slide">
+          <img src="{{ .RelPermalink }}" alt="Gallery image"
+            style="display: block; margin: 0 auto; width: auto; max-width: 100%;
+            max-height: 700px; object-fit: contain; border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);" />
+          {{ with .Params.caption }}
+            <p class="tc mt2 silver">{{ . }}</p>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <!-- Swiper Arrows -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- Swiper Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        fadeEffect: { crossFade: true },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    });
+  </script>
+  <!-- Thumbnail Grid -->
+  <section class="mt5">
+    <h2 class="f4 mb3">Browse All</h2>
+    <div class="flex flex-wrap justify-center">
+      {{ range .Page.Resources.Match "*.{jpg,jpeg}" }}
+        <a href="{{ .RelPermalink }}" data-lightbox="gallery">
+          <img src="{{ .RelPermalink }}" alt="Thumbnail" class="ma2" style="width: 150px; height: 100px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);" />
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Lightbox (optional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+</main>
+{{ end }}
+
