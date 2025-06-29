@@ -1,6 +1,8 @@
 baseURL = 'https://roamwiser.com/'
 languageCode = 'en-us'
 title = 'Roam Wiser'
+description = 'Wander smarter. Explore deeply. Travel better.'
+featured_image = 'images/hero-nature.png'
 theme = 'ananke'
 [params]
   site_logo = "images/logo.png"
