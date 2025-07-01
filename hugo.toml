@@ -6,6 +6,7 @@ featured_image = 'images/hero-nature.png'
 theme = 'ananke'
 [params]
   site_logo = "images/logo.png"
+  favicon = "images/logo.png"
   custom_css = ["css/custom.css"]
 [menu]
 
